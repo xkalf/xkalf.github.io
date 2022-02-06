@@ -44,7 +44,7 @@ export const TimeText = styled.p`
       : props.state === "waiting"
       ? "#ff0000"
       : "#ffffff"};
-  margin-top: 10%;
+  margin-top: 11%;
 `;
 export const StartText = styled.p`
   font-family: Montserrat, sans-serif;
@@ -60,10 +60,11 @@ export const StartText = styled.p`
   margin-top: 19px;
 `;
 export const Footer = styled.div`
-  margin-top: 20%;
+  margin-top: 25%;
   display: flex;
   align-items: center;
-  gap: 110px;
+  gap: 40%;
+  transform: translateX(5.5em);
 `;
 export const Buttons = styled.div`
   background: linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%);

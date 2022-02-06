@@ -11,7 +11,7 @@ const AppContainer = styled.div`
   overflow: hidden;
 `;
 const EmptySpace = styled.div`
-  flex: 1;
+  flex: 2.4;
   background-color: #2e3439;
 `;
 

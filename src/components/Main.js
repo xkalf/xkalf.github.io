@@ -20,7 +20,7 @@ function Main({ displaySec, state, scramble }) {
       <ScrambleContainer>
         <ScrambleText>{scramble}</ScrambleText>
       </ScrambleContainer>
-      <TimeText state={state}>{displaySec}</TimeText>
+      <TimeText state={state}>00.00</TimeText>
       <StartText>Press and hold Space to start</StartText>
       <Footer>
         <img src={logo} alt="logo" />
