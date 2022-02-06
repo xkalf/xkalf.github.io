@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.c7ec3132.css",
-    "main.js": "/static/js/main.9595af58.js",
+    "main.js": "/static/js/main.f76604c0.js",
     "static/media/nomad-logo.svg": "/static/media/nomad-logo.d08257f8ef41187244233aced0fccab7.svg",
     "static/media/dark-mode-icon.svg": "/static/media/dark-mode-icon.6c449611aae54ecc7071fc6e216ba733.svg",
     "index.html": "/index.html",
     "static/media/light-mode-icon.svg": "/static/media/light-mode-icon.bf63374eb3f2b32bc4fc1dee259f45a8.svg",
     "main.c7ec3132.css.map": "/static/css/main.c7ec3132.css.map",
-    "main.9595af58.js.map": "/static/js/main.9595af58.js.map"
+    "main.f76604c0.js.map": "/static/js/main.f76604c0.js.map"
   },
   "entrypoints": [
     "static/css/main.c7ec3132.css",
-    "static/js/main.9595af58.js"
+    "static/js/main.f76604c0.js"
   ]
 }
