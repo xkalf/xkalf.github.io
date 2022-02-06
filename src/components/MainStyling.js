@@ -64,9 +64,6 @@ export const Footer = styled.div`
   display: flex;
   align-items: center;
   gap: 110px;
-  position: absolute;
-  bottom: 5%;
-  right: 10%;
 `;
 export const Buttons = styled.div`
   background: linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%);

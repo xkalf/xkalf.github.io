@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
 import Solves from "./Solves";
 
 const StyledSolvesList = styled.div`

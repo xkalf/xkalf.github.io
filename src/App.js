@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
-import { displayTime } from "./utils/TimerUtils";
+import { displayTime, scrambler } from "./utils/TimerUtils";
 
 const AppContainer = styled.div`
   display: flex;
@@ -19,6 +19,9 @@ function App() {
   const [solves, setSolves] = useState([]);
   const [displaySec, setDisplaySec] = useState("");
   const [state, setState] = useState("");
+  const [scramble, setScramble] = useState(
+    "L U' D L' B2 R2 D' U2 L2 F L2 D2 B R2 U2 B U2 F R' "
+  );
 
   let millSec = 0;
   let running = false;
@@ -35,13 +38,17 @@ function App() {
   };
   const timeStop = () => {
     setSolves((curr) => [...curr, millSec]);
-    localStorage.setItem("solves", solves);
+    localStorage.setItem("solves", JSON.stringify(solves));
     clearInterval(myInterval);
     running = false;
   };
 
   useEffect(() => {
     setDisplaySec(displayTime(0));
+    scrambler.getScramble(["333"], (s) => {
+      setScramble(s);
+      console.log(s);
+    });
 
     window.addEventListener("keydown", (event) => {
       if (event.code === "Space") {
@@ -69,7 +76,7 @@ function App() {
   return (
     <AppContainer>
       <SideBar solves={solves} displayTime={displayTime} />
-      <Main displaySec={displaySec} state={state} />
+      <Main displaySec={displaySec} state={state} scramble={scramble} />
       <EmptySpace />
     </AppContainer>
   );

@@ -14,13 +14,11 @@ import {
   SessionButton,
 } from "./MainStyling";
 
-function Main({ displaySec, state }) {
+function Main({ displaySec, state, scramble }) {
   return (
     <StyledMain>
       <ScrambleContainer>
-        <ScrambleText>
-          F2 U' R L2 D L2 B' R' D2 L2 U2 F B2 L2 U2 F D2 R2 F'
-        </ScrambleText>
+        <ScrambleText>{scramble}</ScrambleText>
       </ScrambleContainer>
       <TimeText state={state}>{displaySec}</TimeText>
       <StartText>Press and hold Space to start</StartText>

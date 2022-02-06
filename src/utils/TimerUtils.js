@@ -1,3 +1,5 @@
+import scramble from "./Scramble";
+
 export const displayTime = (time) => {
   let result = "";
 
@@ -72,3 +74,5 @@ export const getAvg = (arr, length) => {
 
   return avg.toFixed();
 };
+
+export const scrambler = scramble();
