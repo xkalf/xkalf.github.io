@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import logo from "../assets/nomad-logo.svg";
+import logo from "../assets/Timer-white.png";
 import {
   StyledMain,
   ScrambleContainer,
