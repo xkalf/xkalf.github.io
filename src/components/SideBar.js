@@ -14,12 +14,18 @@ const SideBarContainer = styled.div`
   padding: 20px;
 `;
 
-function SideBar({ solves, displayTime }) {
+function SideBar({ solves, displayTime, deleteTime, plusTime, dnfTime }) {
   return (
     <SideBarContainer>
       <NavBar />
       <Stats solves={solves} displayTime={displayTime} />
-      <SolvesList solves={solves} displayTime={displayTime} />
+      <SolvesList
+        solves={solves}
+        displayTime={displayTime}
+        deleteTime={deleteTime}
+        plusTime={plusTime}
+        dnfTime={dnfTime}
+      />
       <ScrambleImg />
     </SideBarContainer>
   );

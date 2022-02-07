@@ -1,6 +1,7 @@
 import scramble from "./Scramble";
 
 export const displayTime = (time) => {
+  if (time < 0) return "DNF";
   let result = "";
 
   const msInHours = 100 * 60 * 60;
@@ -74,5 +75,3 @@ export const getAvg = (arr, length) => {
 
   return avg.toFixed();
 };
-
-export const scrambler = scramble();

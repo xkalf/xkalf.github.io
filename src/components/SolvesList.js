@@ -15,11 +15,21 @@ const StyledSolvesList = styled.div`
   overflow: auto;
 `;
 
-function SolvesList({ solves, displayTime }) {
+function SolvesList({ solves, displayTime, deleteTime, plusTime, dnfTime }) {
   return (
     <StyledSolvesList>
       {solves.map((el, index) => {
-        return <Solves key={index} time={displayTime(el)} count={index + 1} />;
+        return (
+          <Solves
+            key={index}
+            time={displayTime(el)}
+            count={index + 1}
+            deleteTime={deleteTime}
+            index={index}
+            plusTime={plusTime}
+            dnfTime={dnfTime}
+          />
+        );
       })}
     </StyledSolvesList>
   );

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
-import { displayTime, scrambler } from "./utils/TimerUtils";
+import { displayTime } from "./utils/TimerUtils";
 
 const AppContainer = styled.div`
   display: flex;
@@ -42,13 +42,24 @@ function App() {
     clearInterval(myInterval);
     running = false;
   };
+  const deleteTime = (index) => {
+    const temp = [...solves];
+    temp.splice(index, 1);
+    setSolves(temp);
+  };
+  const plusTime = (index) => {
+    const temp = [...solves];
+    temp[index] += 200;
+    setSolves(temp);
+  };
+  const dnfTime = (index) => {
+    const temp = [...solves];
+    temp[index] = -1;
+    setSolves(temp);
+  };
 
   useEffect(() => {
     setDisplaySec(displayTime(0));
-    scrambler.getScramble(["333"], (s) => {
-      setScramble(s);
-      console.log(s);
-    });
 
     window.addEventListener("keydown", (event) => {
       if (event.code === "Space") {
@@ -75,7 +86,13 @@ function App() {
 
   return (
     <AppContainer>
-      <SideBar solves={solves} displayTime={displayTime} />
+      <SideBar
+        solves={solves}
+        displayTime={displayTime}
+        deleteTime={deleteTime}
+        plusTime={plusTime}
+        dnfTime={dnfTime}
+      />
       <Main displaySec={displaySec} state={state} scramble={scramble} />
       <EmptySpace />
     </AppContainer>
