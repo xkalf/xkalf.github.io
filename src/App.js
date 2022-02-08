@@ -22,7 +22,6 @@ function App() {
   const [scramble, setScramble] = useState(
     "L U' D L' B2 R2 D' U2 L2 F L2 D2 B R2 U2 B U2 F R' "
   );
-
   let millSec = 0;
   let running = false;
   let keyPress = false;
@@ -38,7 +37,6 @@ function App() {
   };
   const timeStop = () => {
     setSolves((curr) => [...curr, millSec]);
-    localStorage.setItem("solves", JSON.stringify(solves));
     clearInterval(myInterval);
     running = false;
   };
@@ -83,6 +81,9 @@ function App() {
       }
     });
   }, []);
+  useEffect(() => {
+    localStorage.setItem("solves", JSON.stringify(solves));
+  }, [solves]);
 
   return (
     <AppContainer>
