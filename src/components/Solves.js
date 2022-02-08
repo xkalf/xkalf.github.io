@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Span = styled.span`
@@ -12,6 +12,19 @@ const Span = styled.span`
   align-items: center;
 `;
 
+const Button = styled.button`
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 18px;
+  /* or 100% */
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+`;
+
 const StyledSolves = styled.div`
   display: flex;
   justify-content: space-between;
@@ -22,20 +35,21 @@ const Buttons = styled.div`
   display: flex;
   gap: 5px;
 `;
-const Plus2 = styled(Span)`
+const Plus2 = styled(Button)`
   color: rgba(202, 58, 58, 0.5);
   cursor: pointer;
 `;
-const Dnf = styled(Span)`
+const Dnf = styled(Button)`
   cursor: pointer;
+  color: #fff;
 `;
-const Delete = styled(Span)`
+const Delete = styled(Button)`
   color: #ca3a3a;
   cursor: pointer;
 `;
 
 function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
-  let clicked = false;
+  const [clicked, setClicked] = useState(false);
   return (
     <StyledSolves>
       <Span>
@@ -45,23 +59,23 @@ function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
         <Plus2
           onClick={() => {
             plusTime(index);
+            setClicked(true);
           }}
+          disabled={clicked}
         >
           +2
         </Plus2>
         <Dnf
           onClick={() => {
             dnfTime(index);
+            setClicked(true);
           }}
         >
           DNF
         </Dnf>
         <Delete
           onClick={() => {
-            if (clicked === false) {
-              deleteTime(index);
-              clicked = true;
-            }
+            deleteTime(index);
           }}
         >
           X

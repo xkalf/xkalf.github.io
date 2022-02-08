@@ -59,6 +59,8 @@ function App() {
   useEffect(() => {
     setDisplaySec(displayTime(0));
 
+    setSolves(JSON.parse(localStorage.getItem("solves")) || []);
+
     window.addEventListener("keydown", (event) => {
       if (event.code === "Space") {
         if (running === true) {
