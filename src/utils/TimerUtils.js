@@ -53,7 +53,10 @@ export const displayTime = (time) => {
 };
 
 export const getBest = (arr) => {
-  return Math.min(...arr);
+  const temp = [...arr];
+  const result = temp.filter((i) => i >= 0);
+  if (result.length == 0) return 0;
+  return Math.min(...result);
 };
 
 export const getAvg = (arr, length) => {
