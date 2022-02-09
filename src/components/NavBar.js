@@ -46,7 +46,7 @@ const Email = styled.span`
   font-size: 14px;
   line-height: 18px;
   color: #fff;
-  margin-right: 8vw;
+  margin-right: 6vw;
   max-width: 200px;
   display: inline-block;
   overflow: hidden;
