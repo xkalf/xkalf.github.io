@@ -27,7 +27,6 @@ const LanguageToggleBtn = styled.button`
   text-align: center;
   color: #fff;
   box-sizing: border-box;
-  padding: 10px 8px;
   margin-right: 4px;
   padding: 8px 10px;
   text-transform: uppercase;
@@ -47,7 +46,7 @@ const Email = styled.span`
   font-size: 14px;
   line-height: 18px;
   color: #fff;
-  margin-right: 50px;
+  margin-right: 5vw;
 `;
 
 const PagesContainer = styled.div`
