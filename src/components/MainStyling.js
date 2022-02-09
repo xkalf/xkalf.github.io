@@ -105,6 +105,9 @@ export const SessionButton = styled.button`
 
 export const Logo = styled.img`
   margin-top: 25vh;
+  @media (max-height: 700px) {
+    margin-top: 16vh;
+  }
 `;
 export const TextContainer = styled.div`
   margin-top: 10vh;

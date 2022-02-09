@@ -17,7 +17,7 @@ const EmptySpace = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: 4%;
+  padding-bottom: 6vh;
 `;
 
 function App() {
