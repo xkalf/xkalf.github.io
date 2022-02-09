@@ -14,6 +14,7 @@ export const ScrambleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5vh;
 `;
 export const ScrambleText = styled.p`
   font-family: Montserrat;
@@ -59,13 +60,6 @@ export const StartText = styled.p`
   color: #ffffff;
   margin-top: 19px;
 `;
-export const Footer = styled.div`
-  margin-top: 25%;
-  display: flex;
-  align-items: center;
-  gap: 40%;
-  transform: translateX(5.5em);
-`;
 export const Buttons = styled.div`
   background: linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%);
   mix-blend-mode: normal;
@@ -74,7 +68,7 @@ export const Buttons = styled.div`
   border-radius: 200px;
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 180px;
   padding: 5px;
 `;
 export const TypeButton = styled.button`
@@ -107,4 +101,11 @@ export const SessionButton = styled.button`
   font-size: 20px;
   line-height: 18px;
   color: #ffffff;
+`;
+
+export const Logo = styled.img`
+  margin-top: 20vh;
+`;
+export const TextContainer = styled.div`
+  margin-top: 10vh;
 `;

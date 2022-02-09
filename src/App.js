@@ -4,6 +4,7 @@ import styled from "styled-components";
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import { displayTime } from "./utils/TimerUtils";
+import { Buttons, TypeButton, SessionButton } from "./components/MainStyling";
 
 const AppContainer = styled.div`
   display: flex;
@@ -13,6 +14,10 @@ const AppContainer = styled.div`
 const EmptySpace = styled.div`
   flex: 2.4;
   background-color: #2e3439;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 4%;
 `;
 
 function App() {
@@ -97,7 +102,12 @@ function App() {
         dnfTime={dnfTime}
       />
       <Main displaySec={displaySec} state={state} scramble={scramble} />
-      <EmptySpace />
+      <EmptySpace>
+        <Buttons>
+          <TypeButton>3x3</TypeButton>
+          <SessionButton>New</SessionButton>
+        </Buttons>
+      </EmptySpace>
     </AppContainer>
   );
 }

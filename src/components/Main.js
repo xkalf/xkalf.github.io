@@ -8,10 +8,8 @@ import {
   ScrambleText,
   TimeText,
   StartText,
-  Footer,
-  Buttons,
-  TypeButton,
-  SessionButton,
+  Logo,
+  TextContainer,
 } from "./MainStyling";
 
 function Main({ displaySec, state, scramble }) {
@@ -20,15 +18,11 @@ function Main({ displaySec, state, scramble }) {
       <ScrambleContainer>
         <ScrambleText>{scramble}</ScrambleText>
       </ScrambleContainer>
-      <TimeText state={state}>{displaySec}</TimeText>
-      <StartText>Press and hold Space to start</StartText>
-      <Footer>
-        <img src={logo} alt="logo" />
-        <Buttons>
-          <TypeButton>3x3</TypeButton>
-          <SessionButton>New</SessionButton>
-        </Buttons>
-      </Footer>
+      <TextContainer>
+        <TimeText state={state}>{displaySec}</TimeText>
+        <StartText>Press and hold Space to start</StartText>
+      </TextContainer>
+      <Logo src={logo} alt="logo" />
     </StyledMain>
   );
 }

@@ -6,7 +6,7 @@ import lightModeIcon from "../assets/light-mode-icon.svg";
 
 const NavBarContainer = styled.div`
   height: 17%;
-  gap: 10%;
+  gap: 20%;
   display: flex;
   flex-direction: column;
 `;
@@ -55,8 +55,8 @@ const PagesContainer = styled.div`
   justify-content: space-between;
 `;
 const PageContainer = styled.div`
-  width: 49px;
-  height: 49px;
+  width: 4vh;
+  height: 4vh;
   background: #485057;
   box-shadow: -3px -3px 18px rgba(255, 255, 255, 0.1),
     4px 4px 20px rgba(0, 0, 0, 0.2);
