@@ -104,7 +104,7 @@ export const SessionButton = styled.button`
 `;
 
 export const Logo = styled.img`
-  margin-top: 20vh;
+  margin-top: 25vh;
 `;
 export const TextContainer = styled.div`
   margin-top: 10vh;

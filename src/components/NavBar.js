@@ -46,10 +46,11 @@ const Email = styled.span`
   font-size: 14px;
   line-height: 18px;
   color: #fff;
-  margin-right: 5vw;
-  @media (max-width: 800px) {
-    font-size: 10px;
-  }
+  margin-right: 8vw;
+  max-width: 200px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const PagesContainer = styled.div`
@@ -77,7 +78,7 @@ function NavBar() {
   return (
     <NavBarContainer>
       <UserContainer>
-        <Email>amroos988@gmail.com</Email>
+        <Email>amroos988</Email>
         <LanguageToggleBtn>en</LanguageToggleBtn>
         <ColorModeBtn>
           <img src={lightModeIcon} assets="lightMode" />
