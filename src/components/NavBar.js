@@ -47,6 +47,9 @@ const Email = styled.span`
   line-height: 18px;
   color: #fff;
   margin-right: 5vw;
+  @media (max-width: 800px) {
+    font-size: 10px;
+  }
 `;
 
 const PagesContainer = styled.div`
