@@ -1,7 +1,36 @@
 import styled from "styled-components";
 
+export const themeDark = {
+  textColor: "#fff",
+  mainBackground: "#2e3439",
+  scrambleText: "#b8b8b8",
+  statBackground: "#33393e",
+  solvesList: "#363c41",
+  styledScramble: "#363c41",
+  sideBar: "#454f57",
+  toggleButton: "#33393e",
+  pageContainer: "#485057",
+  borderColor: "#797878",
+  buttons: "linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%)",
+  sessionButton: "linear-gradient(324.39deg, #3d444a -25.55%, #363c41 77.18%)",
+};
+export const themeLight = {
+  textColor: "#000",
+  mainBackground: "#e5e5e5",
+  scrambleText: "#b8b8b8",
+  statBackground: "#fff",
+  solvesList: "#fff",
+  styledScramble: "#fff",
+  sideBar: "#fefefe",
+  toggleButton: "#fff",
+  pageContainer: "#fff",
+  borderColor: "#dcdcdc",
+  buttons: "fff",
+  sessionButton: "fff",
+};
+
 export const StyledMain = styled.div`
-  background-color: #2e3439;
+  background-color: ${(props) => props.theme.mainBackground};
   flex: 8;
   display: flex;
   flex-direction: column;
@@ -27,7 +56,7 @@ export const ScrambleText = styled.p`
   text-align: center;
   line-height: 1.2em;
   letter-spacing: -0.017em;
-  color: #b8b8b8;
+  color: ${(props) => props.theme.scrambleText};
 `;
 export const TimeText = styled.p`
   font-family: Montserrat;
@@ -44,7 +73,7 @@ export const TimeText = styled.p`
       ? "#00ff00"
       : props.state === "waiting"
       ? "#ff0000"
-      : "#ffffff"};
+      : props.theme.textColor};
   margin-top: 11%;
 `;
 export const StartText = styled.p`
@@ -57,7 +86,7 @@ export const StartText = styled.p`
   align-items: center;
   text-align: center;
   letter-spacing: -0.017em;
-  color: #ffffff;
+  color: ${(props) => props.theme.textColor};
   margin-top: 19px;
 `;
 
@@ -79,7 +108,7 @@ export const StatsContainer = styled.div`
 export const Best = styled.div`
   width: auto;
   height: 7vh;
-  background-color: #33393e;
+  background-color: ${(props) => props.theme.statBackground};
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2),
     -3px -3px 18px rgba(255, 255, 255, 0.04);
   border-radius: 10px;
@@ -89,7 +118,7 @@ export const Best = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  color: white;
+  color: ${(props) => props.theme.textColor};
   font-family: Inter, sans-serif;
   line-height: 21.78px;
   @media (max-width: 900px) {
@@ -103,7 +132,7 @@ export const Row = styled.div`
 export const Avg = styled.div`
   width: 48%;
   height: 6vh;
-  background-color: #33393e;
+  background-color: ${(props) => props.theme.statBackground};
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2),
     -3px -3px 18px rgba(255, 255, 255, 0.04);
   border-radius: 10px;
@@ -112,7 +141,7 @@ export const Avg = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  color: white;
+  color: ${(props) => props.theme.textColor};
   font-family: Inter, sans-serif;
   @media (max-width: 900px) {
     font-size: 13px;
@@ -121,7 +150,7 @@ export const Avg = styled.div`
 
 export const StyledSolvesList = styled.div`
   height: 30%;
-  background-color: #363c41;
+  background-color: ${(props) => props.theme.solvesList};
   box-shadow: -3px -3px 24px rgba(255, 255, 255, 0.07),
     4px 4px 20px rgba(1, 1, 1, 0.25);
   border-radius: 20px;
@@ -142,6 +171,7 @@ export const Span = styled.span`
   /* or 100% */
   display: flex;
   align-items: center;
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const Button = styled.button`
@@ -181,7 +211,7 @@ export const Delete = styled(Button)`
 `;
 
 export const SideBarContainer = styled.div`
-  background-color: #454f57;
+  background-color: ${(props) => props.theme.sideBar};
   flex: 2;
   display: flex;
   flex-direction: column;
@@ -190,7 +220,7 @@ export const SideBarContainer = styled.div`
 
 export const StyledScramble = styled.div`
   margin-top: 22px;
-  background: #363c41;
+  background: ${(props) => props.theme.styledScramble};
   height: 23%;
   border-radius: 20px;
   box-shadow: -3px -3px 18px rgba(255, 255, 255, 0.04),
@@ -208,20 +238,20 @@ export const UserContainer = styled.div`
   align-items: center;
 `;
 export const LanguageToggleBtn = styled.button`
-  background-color: #33393e;
+  background-color: ${(props) => props.theme.toggleButton};
   border: none;
   border-radius: 3px;
   font-size: 15px;
   line-height: 18px;
   text-align: center;
-  color: #fff;
+  color: ${(props) => props.theme.textColor};
   box-sizing: border-box;
   margin-right: 4px;
   padding: 8px 10px;
   text-transform: uppercase;
 `;
 export const ColorModeBtn = styled.button`
-  background-color: #33393e;
+  background-color: ${(props) => props.theme.toggleButton};
   border-radius: 43px;
   border: none;
   width: 67px;
@@ -234,7 +264,7 @@ export const Email = styled.span`
   font-family: Inter, sans-serif;
   font-size: 14px;
   line-height: 18px;
-  color: #fff;
+  color: ${(props) => props.theme.textColor};
   margin-right: 6vw;
   max-width: 200px;
   display: inline-block;
@@ -249,7 +279,7 @@ export const PagesContainer = styled.div`
 export const PageContainer = styled.div`
   width: 4vh;
   height: 4vh;
-  background: #485057;
+  background: ${(props) => props.theme.pageContainer};
   box-shadow: -3px -3px 18px rgba(255, 255, 255, 0.1),
     4px 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
@@ -260,7 +290,7 @@ export const PageContainer = styled.div`
 export const Border = styled.div`
   width: auto;
   height: 1px;
-  background-color: #797878;
+  background-color: ${(props) => props.theme.borderColor};
 `;
 
 export const AppContainer = styled.div`
@@ -270,7 +300,7 @@ export const AppContainer = styled.div`
 `;
 export const EmptySpace = styled.div`
   flex: 2.4;
-  background-color: #2e3439;
+  background-color: ${(props) => props.theme.mainBackground};
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -278,7 +308,7 @@ export const EmptySpace = styled.div`
   padding-bottom: 6vh;
 `;
 export const Buttons = styled.div`
-  background: linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%);
+  background: ${(props) => props.theme.buttons};
   mix-blend-mode: normal;
   box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
     7px 7px 24px rgba(0, 0, 0, 0.2);
@@ -298,7 +328,7 @@ export const TypeButton = styled.button`
   display: flex;
   align-items: center;
   text-align: center;
-  color: #ffffff;
+  color: ${(props) => props.theme.textColor};
   background: none;
   border: none;
   margin: 21px 13px;
@@ -306,7 +336,7 @@ export const TypeButton = styled.button`
 export const SessionButton = styled.button`
   height: 83px;
   width: 83px;
-  background: linear-gradient(324.39deg, #3d444a -25.55%, #363c41 77.18%);
+  background: ${(props) => props.theme.sessionButton};
   mix-blend-mode: normal;
   box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
     7px 7px 24px rgba(0, 0, 0, 0.2);
@@ -317,5 +347,5 @@ export const SessionButton = styled.button`
   font-weight: 600;
   font-size: 20px;
   line-height: 18px;
-  color: #ffffff;
+  color: ${(props) => props.theme.textColor};
 `;

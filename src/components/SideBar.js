@@ -16,10 +16,11 @@ function SideBar({
   dnfTime,
   addAo5,
   addAo12,
+  themeToggler,
 }) {
   return (
     <SideBarContainer>
-      <NavBar />
+      <NavBar themeToggler={themeToggler} />
       <Stats
         addAo12={addAo12}
         addAo5={addAo5}

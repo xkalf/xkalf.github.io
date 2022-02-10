@@ -5,13 +5,17 @@ import {
   Buttons,
   TypeButton,
   SessionButton,
+  themeDark,
+  themeLight,
 } from "./components/Style";
 
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import { displayTime, loadAvg } from "./utils/TimerUtils";
+import { ThemeProvider } from "styled-components";
 
 function App() {
+  const [theme, setTheme] = useState("dark");
   const [solves, setSolves] = useState([]);
   const [displaySec, setDisplaySec] = useState("");
   const [state, setState] = useState("");
@@ -25,6 +29,9 @@ function App() {
   let keyPress = false;
   let myInterval;
 
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
   const timeStart = () => {
     millSec = 0;
     myInterval = setInterval(() => {
@@ -93,26 +100,29 @@ function App() {
   }, [solves]);
 
   return (
-    <AppContainer>
-      <SideBar
-        solves={solves}
-        displayTime={displayTime}
-        deleteTime={deleteTime}
-        plusTime={plusTime}
-        dnfTime={dnfTime}
-        ao5={ao5}
-        ao12={ao12}
-        addAo5={addAo5}
-        addAo12={addAo12}
-      />
-      <Main displaySec={displaySec} state={state} scramble={scramble} />
-      <EmptySpace>
-        <Buttons>
-          <TypeButton>3x3</TypeButton>
-          <SessionButton>New</SessionButton>
-        </Buttons>
-      </EmptySpace>
-    </AppContainer>
+    <ThemeProvider theme={theme === "light" ? themeLight : themeDark}>
+      <AppContainer>
+        <SideBar
+          solves={solves}
+          displayTime={displayTime}
+          deleteTime={deleteTime}
+          plusTime={plusTime}
+          dnfTime={dnfTime}
+          ao5={ao5}
+          ao12={ao12}
+          addAo5={addAo5}
+          addAo12={addAo12}
+          themeToggler={themeToggler}
+        />
+        <Main displaySec={displaySec} state={state} scramble={scramble} />
+        <EmptySpace>
+          <Buttons>
+            <TypeButton>3x3</TypeButton>
+            <SessionButton>New</SessionButton>
+          </Buttons>
+        </EmptySpace>
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 

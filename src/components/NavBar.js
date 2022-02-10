@@ -13,13 +13,17 @@ import {
 import darkModeIcon from "../assets/dark-mode-icon.svg";
 import lightModeIcon from "../assets/light-mode-icon.svg";
 
-function NavBar() {
+function NavBar({ themeToggler }) {
   return (
     <NavBarContainer>
       <UserContainer>
         <Email>amroos988</Email>
         <LanguageToggleBtn>en</LanguageToggleBtn>
-        <ColorModeBtn>
+        <ColorModeBtn
+          onClick={() => {
+            themeToggler();
+          }}
+        >
           <img src={lightModeIcon} alt="lightMode" />
           <img src={darkModeIcon} alt="darkMode" />
         </ColorModeBtn>
