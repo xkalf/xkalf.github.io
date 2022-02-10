@@ -1,66 +1,15 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import {
+  AppContainer,
+  EmptySpace,
+  Buttons,
+  TypeButton,
+  SessionButton,
+} from "./components/Style";
 
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
-import { displayTime } from "./utils/TimerUtils";
-
-const AppContainer = styled.div`
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-`;
-const EmptySpace = styled.div`
-  flex: 2.4;
-  background-color: #2e3439;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-bottom: 6vh;
-`;
-const Buttons = styled.div`
-  background: linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%);
-  mix-blend-mode: normal;
-  box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
-    7px 7px 24px rgba(0, 0, 0, 0.2);
-  border-radius: 200px;
-  display: flex;
-  align-items: center;
-  width: 180px;
-  padding: 5px;
-`;
-const TypeButton = styled.button`
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 18px;
-  /* or 50% */
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  background: none;
-  border: none;
-  margin: 21px 13px;
-`;
-const SessionButton = styled.button`
-  height: 83px;
-  width: 83px;
-  background: linear-gradient(324.39deg, #3d444a -25.55%, #363c41 77.18%);
-  mix-blend-mode: normal;
-  box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
-    7px 7px 24px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  border: none;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 18px;
-  color: #ffffff;
-`;
+import { displayTime, loadAvg } from "./utils/TimerUtils";
 
 function App() {
   const [solves, setSolves] = useState([]);
@@ -69,6 +18,8 @@ function App() {
   const [scramble, setScramble] = useState(
     "L U' D L' B2 R2 D' U2 L2 F L2 D2 B R2 U2 B U2 F R' "
   );
+  const [ao5, setAo5] = useState([]);
+  const [ao12, setAo12] = useState([]);
   let millSec = 0;
   let running = false;
   let keyPress = false;
@@ -102,11 +53,18 @@ function App() {
     temp[index] = -1;
     setSolves(temp);
   };
-
+  const addAo5 = () => {
+    setAo5(loadAvg(solves, 5));
+  };
+  const addAo12 = () => {
+    setAo12(loadAvg(solves, 12));
+  };
   useEffect(() => {
     setDisplaySec(displayTime(0));
 
     setSolves(JSON.parse(localStorage.getItem("solves")) || []);
+    setAo5(loadAvg(solves, 5));
+    setAo12(loadAvg(solves, 12));
 
     window.addEventListener("keydown", (event) => {
       if (event.code === "Space") {
@@ -142,6 +100,10 @@ function App() {
         deleteTime={deleteTime}
         plusTime={plusTime}
         dnfTime={dnfTime}
+        ao5={ao5}
+        ao12={ao12}
+        addAo5={addAo5}
+        addAo12={addAo12}
       />
       <Main displaySec={displaySec} state={state} scramble={scramble} />
       <EmptySpace>

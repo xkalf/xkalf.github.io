@@ -9,7 +9,7 @@ import {
   StartText,
   Logo,
   TextContainer,
-} from "./MainStyling";
+} from "./Style";
 
 function Main({ displaySec, state, scramble }) {
   return (

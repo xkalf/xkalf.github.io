@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyledSolves, Span, Buttons, Plus2, Dnf, Delete } from "./Style";
+import { StyledSolves, Span, SolvesButtons, Plus2, Dnf, Delete } from "./Style";
 
 function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
   const [clicked, setClicked] = useState(false);
@@ -8,7 +8,7 @@ function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
       <Span>
         {count}. {time}
       </Span>
-      <Buttons>
+      <SolvesButtons>
         <Plus2
           onClick={() => {
             plusTime(index);
@@ -19,6 +19,7 @@ function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
           +2
         </Plus2>
         <Dnf
+          disabled={clicked}
           onClick={() => {
             dnfTime(index);
             setClicked(true);
@@ -33,7 +34,7 @@ function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
         >
           X
         </Delete>
-      </Buttons>
+      </SolvesButtons>
     </StyledSolves>
   );
 }

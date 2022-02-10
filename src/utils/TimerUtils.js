@@ -76,3 +76,29 @@ export const getAvg = (arr, length) => {
 
   return avg.toFixed();
 };
+
+export const loadAvg = (arr, length) => {
+  if (arr.length > length) {
+    let result = [];
+
+    for (let i = 0; i <= arr.length - (length - 1); i++) {
+      let newArr = [];
+      for (let j = 0; j < length; j++) {
+        newArr = [...newArr, arr[j + i]];
+      }
+
+      const min = Math.min(...newArr);
+      const max = Math.max(...newArr);
+
+      const index1 = newArr.indexOf(min);
+      newArr.splice(index1, 1);
+      const index2 = newArr.indexOf(max);
+      newArr.splice(index2, 1);
+
+      const avg = (newArr.reduce((a, b) => a + b, 0) / newArr.length).toFixed();
+      result = [...result, avg];
+    }
+
+    return result;
+  } else return [];
+};

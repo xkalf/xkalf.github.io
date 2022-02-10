@@ -163,7 +163,7 @@ export const StyledSolves = styled.div`
   align-items: center;
   padding: 15px;
 `;
-export const Buttons = styled.div`
+export const SolvesButtons = styled.div`
   display: flex;
   gap: 5px;
 `;
@@ -261,4 +261,61 @@ export const Border = styled.div`
   width: auto;
   height: 1px;
   background-color: #797878;
+`;
+
+export const AppContainer = styled.div`
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+`;
+export const EmptySpace = styled.div`
+  flex: 2.4;
+  background-color: #2e3439;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-bottom: 6vh;
+`;
+export const Buttons = styled.div`
+  background: linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%);
+  mix-blend-mode: normal;
+  box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
+    7px 7px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  width: 180px;
+  padding: 5px;
+`;
+export const TypeButton = styled.button`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 18px;
+  /* or 50% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  background: none;
+  border: none;
+  margin: 21px 13px;
+`;
+export const SessionButton = styled.button`
+  height: 83px;
+  width: 83px;
+  background: linear-gradient(324.39deg, #3d444a -25.55%, #363c41 77.18%);
+  mix-blend-mode: normal;
+  box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
+    7px 7px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 18px;
+  color: #ffffff;
 `;
