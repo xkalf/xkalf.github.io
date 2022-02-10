@@ -1,5 +1,3 @@
-import scramble from "./Scramble";
-
 export const displayTime = (time) => {
   if (time < 0) return "DNF";
   let result = "";
@@ -55,7 +53,7 @@ export const displayTime = (time) => {
 export const getBest = (arr) => {
   const temp = [...arr];
   const result = temp.filter((i) => i >= 0);
-  if (result.length == 0) return 0;
+  if (result.length === 0) return 0;
   return Math.min(...result);
 };
 

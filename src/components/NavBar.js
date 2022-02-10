@@ -14,10 +14,6 @@ const UserContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-const MenuList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-`;
 const LanguageToggleBtn = styled.button`
   background-color: #33393e;
   border: none;
@@ -81,8 +77,8 @@ function NavBar() {
         <Email>amroos988</Email>
         <LanguageToggleBtn>en</LanguageToggleBtn>
         <ColorModeBtn>
-          <img src={lightModeIcon} assets="lightMode" />
-          <img src={darkModeIcon} assets="darkMode" />
+          <img src={lightModeIcon} alt="lightMode" />
+          <img src={darkModeIcon} alt="darkMode" />
         </ColorModeBtn>
       </UserContainer>
       <PagesContainer>

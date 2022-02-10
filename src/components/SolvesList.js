@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Solves from "./Solves";
 
@@ -9,6 +9,7 @@ const StyledSolvesList = styled.div`
     4px 4px 20px rgba(1, 1, 1, 0.25);
   border-radius: 20px;
   padding: 15px;
+  padding-right: 10px;
   color: white;
   font-size: 18px;
   margin-top: 22px;

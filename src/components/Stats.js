@@ -9,7 +9,7 @@ const StatsContainer = styled.div`
 `;
 const Best = styled.div`
   width: auto;
-  height: 8vh;
+  height: 7vh;
   background-color: #33393e;
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2),
     -3px -3px 18px rgba(255, 255, 255, 0.04);
@@ -23,6 +23,9 @@ const Best = styled.div`
   color: white;
   font-family: Inter, sans-serif;
   line-height: 21.78px;
+  @media (max-width: 900px) {
+    font-size: 15px;
+  }
 `;
 const Row = styled.div`
   display: flex;
@@ -42,6 +45,9 @@ const Avg = styled.div`
   padding: 12px;
   color: white;
   font-family: Inter, sans-serif;
+  @media (max-width: 900px) {
+    font-size: 13px;
+  }
 `;
 
 function Stats({ solves, displayTime }) {
@@ -49,7 +55,7 @@ function Stats({ solves, displayTime }) {
   const [ao5, setAo5] = useState(0);
   const [ao12, setAo12] = useState(0);
   useEffect(() => {
-    if (solves.length != 0) setBest(displayTime(getBest(solves)));
+    if (solves.length !== 0) setBest(displayTime(getBest(solves)));
     if (solves.length >= 5) setAo5(displayTime(getAvg(solves, 5)));
     if (solves.length >= 12) {
       setAo5(displayTime(getAvg(solves, 5)));
@@ -68,8 +74,8 @@ function Stats({ solves, displayTime }) {
           <span>{ao5}</span>
         </Avg>
         <Avg>
-          <span>Ao5 Best</span>
-          <span>0</span>
+          <span>Ao5 PB</span>
+          <span>0.00</span>
         </Avg>
       </Row>
       <Row>
@@ -78,7 +84,7 @@ function Stats({ solves, displayTime }) {
           <span>{ao12}</span>
         </Avg>
         <Avg>
-          <span>Ao12 Best</span>
+          <span>Ao12 PB</span>
           <span>0</span>
         </Avg>
       </Row>

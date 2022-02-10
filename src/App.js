@@ -4,7 +4,6 @@ import styled from "styled-components";
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import { displayTime } from "./utils/TimerUtils";
-import { Buttons, TypeButton, SessionButton } from "./components/MainStyling";
 
 const AppContainer = styled.div`
   display: flex;
@@ -17,7 +16,50 @@ const EmptySpace = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start;
   padding-bottom: 6vh;
+`;
+const Buttons = styled.div`
+  background: linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%);
+  mix-blend-mode: normal;
+  box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
+    7px 7px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  width: 180px;
+  padding: 5px;
+`;
+const TypeButton = styled.button`
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 18px;
+  /* or 50% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  background: none;
+  border: none;
+  margin: 21px 13px;
+`;
+const SessionButton = styled.button`
+  height: 83px;
+  width: 83px;
+  background: linear-gradient(324.39deg, #3d444a -25.55%, #363c41 77.18%);
+  mix-blend-mode: normal;
+  box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
+    7px 7px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 18px;
+  color: #ffffff;
 `;
 
 function App() {

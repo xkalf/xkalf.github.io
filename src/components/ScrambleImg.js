@@ -11,11 +11,7 @@ const StyledScramble = styled.div`
 `;
 
 function ScrambleImg() {
-  return (
-    <StyledScramble>
-      <img />
-    </StyledScramble>
-  );
+  return <StyledScramble></StyledScramble>;
 }
 
 export default ScrambleImg;
