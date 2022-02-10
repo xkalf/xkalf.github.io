@@ -19,9 +19,7 @@ function App() {
   const [solves, setSolves] = useState([]);
   const [displaySec, setDisplaySec] = useState("");
   const [state, setState] = useState("");
-  const [scramble, setScramble] = useState(
-    "L U' D L' B2 R2 D' U2 L2 F L2 D2 B R2 U2 B U2 F R' "
-  );
+  const [scramble, setScramble] = useState("scramble obso");
   const [ao5, setAo5] = useState([]);
   const [ao12, setAo12] = useState([]);
   let millSec = 0;

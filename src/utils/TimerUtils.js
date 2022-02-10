@@ -78,7 +78,7 @@ export const getAvg = (arr, length) => {
 };
 
 export const loadAvg = (arr, length) => {
-  if (arr.length > length) {
+  if (arr.length >= length) {
     let result = [];
 
     for (let i = 0; i <= arr.length - (length - 1); i++) {
