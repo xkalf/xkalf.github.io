@@ -1,20 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import Solves from "./Solves";
-
-const StyledSolvesList = styled.div`
-  height: 30%;
-  background-color: #363c41;
-  box-shadow: -3px -3px 24px rgba(255, 255, 255, 0.07),
-    4px 4px 20px rgba(1, 1, 1, 0.25);
-  border-radius: 20px;
-  padding: 15px;
-  padding-right: 10px;
-  color: white;
-  font-size: 18px;
-  margin-top: 22px;
-  overflow: auto;
-`;
+import { StyledSolvesList } from "./Style";
 
 function SolvesList({ solves, displayTime, deleteTime, plusTime, dnfTime }) {
   return (

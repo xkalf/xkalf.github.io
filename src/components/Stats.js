@@ -1,54 +1,6 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import { getBest, getAvg } from "../utils/TimerUtils";
-
-const StatsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-`;
-const Best = styled.div`
-  width: auto;
-  height: 7vh;
-  background-color: #33393e;
-  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2),
-    -3px -3px 18px rgba(255, 255, 255, 0.04);
-  border-radius: 10px;
-  font-size: 18px;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  color: white;
-  font-family: Inter, sans-serif;
-  line-height: 21.78px;
-  @media (max-width: 900px) {
-    font-size: 15px;
-  }
-`;
-const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-const Avg = styled.div`
-  width: 48%;
-  height: 6vh;
-  background-color: #33393e;
-  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2),
-    -3px -3px 18px rgba(255, 255, 255, 0.04);
-  border-radius: 10px;
-  line-height: 19.36px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  color: white;
-  font-family: Inter, sans-serif;
-  @media (max-width: 900px) {
-    font-size: 13px;
-  }
-`;
+import { Best, StatsContainer, Row, Avg } from "./Style";
 
 function Stats({ solves, displayTime }) {
   const [best, setBest] = useState(0);
@@ -56,11 +8,13 @@ function Stats({ solves, displayTime }) {
   const [ao12, setAo12] = useState(0);
   useEffect(() => {
     if (solves.length !== 0) setBest(displayTime(getBest(solves)));
+    else setBest(displayTime(0));
     if (solves.length >= 5) setAo5(displayTime(getAvg(solves, 5)));
+    else setAo5(displayTime(0));
     if (solves.length >= 12) {
       setAo5(displayTime(getAvg(solves, 5)));
       setAo12(displayTime(getAvg(solves, 12)));
-    }
+    } else setAo12(displayTime(0));
   }, [solves]);
   return (
     <StatsContainer>
@@ -85,7 +39,7 @@ function Stats({ solves, displayTime }) {
         </Avg>
         <Avg>
           <span>Ao12 PB</span>
-          <span>0</span>
+          <span>0.00</span>
         </Avg>
       </Row>
     </StatsContainer>
