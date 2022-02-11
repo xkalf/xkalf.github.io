@@ -13,9 +13,11 @@ export const themeDark = {
   borderColor: "#797878",
   buttons: "linear-gradient(324.39deg, #3d444a 1.49%, #424b53 77.18%)",
   sessionButton: "linear-gradient(324.39deg, #3d444a -25.55%, #363c41 77.18%)",
+  boxShadow: `4px 4px 20px rgba(0, 0, 0, 0.2),
+    -3px -3px 18px rgba(255, 255, 255, 0.04)`,
 };
 export const themeLight = {
-  textColor: "#000",
+  textColor: "#333",
   mainBackground: "#e5e5e5",
   scrambleText: "#b8b8b8",
   statBackground: "#fff",
@@ -27,6 +29,7 @@ export const themeLight = {
   borderColor: "#dcdcdc",
   buttons: "fff",
   sessionButton: "fff",
+  boxShadow: `-3px -3px 18px rgba(255, 255, 255, 0.04), 4px 4px 20px rgba(0, 0, 0, 0.2)`,
 };
 
 export const StyledMain = styled.div`
@@ -109,8 +112,7 @@ export const Best = styled.div`
   width: auto;
   height: 7vh;
   background-color: ${(props) => props.theme.statBackground};
-  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2),
-    -3px -3px 18px rgba(255, 255, 255, 0.04);
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 10px;
   font-size: 18px;
   text-transform: uppercase;
@@ -133,8 +135,7 @@ export const Avg = styled.div`
   width: 48%;
   height: 6vh;
   background-color: ${(props) => props.theme.statBackground};
-  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2),
-    -3px -3px 18px rgba(255, 255, 255, 0.04);
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 10px;
   line-height: 19.36px;
   display: flex;
@@ -151,8 +152,7 @@ export const Avg = styled.div`
 export const StyledSolvesList = styled.div`
   height: 30%;
   background-color: ${(props) => props.theme.solvesList};
-  box-shadow: -3px -3px 24px rgba(255, 255, 255, 0.07),
-    4px 4px 20px rgba(1, 1, 1, 0.25);
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 20px;
   padding: 15px;
   padding-right: 10px;
@@ -203,7 +203,7 @@ export const Plus2 = styled(Button)`
 `;
 export const Dnf = styled(Button)`
   cursor: pointer;
-  color: #fff;
+  color: ${(props) => props.theme.textColor};
 `;
 export const Delete = styled(Button)`
   color: #ca3a3a;
@@ -223,8 +223,7 @@ export const StyledScramble = styled.div`
   background: ${(props) => props.theme.styledScramble};
   height: 23%;
   border-radius: 20px;
-  box-shadow: -3px -3px 18px rgba(255, 255, 255, 0.04),
-    4px 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: ${(props) => props.theme.boxShadow};
 `;
 
 export const NavBarContainer = styled.div`
@@ -240,15 +239,18 @@ export const UserContainer = styled.div`
 export const LanguageToggleBtn = styled.button`
   background-color: ${(props) => props.theme.toggleButton};
   border: none;
-  border-radius: 3px;
+  border-radius: 25px;
+  height: 37px;
+  width: 55px;
   font-size: 15px;
   line-height: 18px;
   text-align: center;
   color: ${(props) => props.theme.textColor};
   box-sizing: border-box;
   margin-right: 4px;
-  padding: 8px 10px;
+  padding: 10px;
   text-transform: uppercase;
+  box-shadow: ${(props) => props.theme.boxShadow};
 `;
 export const ColorModeBtn = styled.button`
   background-color: ${(props) => props.theme.toggleButton};
@@ -259,6 +261,7 @@ export const ColorModeBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: ${(props) => props.theme.boxShadow};
 `;
 export const Email = styled.span`
   font-family: Inter, sans-serif;
@@ -280,8 +283,7 @@ export const PageContainer = styled.div`
   width: 4vh;
   height: 4vh;
   background: ${(props) => props.theme.pageContainer};
-  box-shadow: -3px -3px 18px rgba(255, 255, 255, 0.1),
-    4px 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 2px;
   display: flex;
   justify-content: center;
@@ -310,8 +312,7 @@ export const EmptySpace = styled.div`
 export const Buttons = styled.div`
   background: ${(props) => props.theme.buttons};
   mix-blend-mode: normal;
-  box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
-    7px 7px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 200px;
   display: flex;
   align-items: center;
@@ -338,8 +339,7 @@ export const SessionButton = styled.button`
   width: 83px;
   background: ${(props) => props.theme.sessionButton};
   mix-blend-mode: normal;
-  box-shadow: -3px -3px 12px rgba(255, 255, 255, 0.03),
-    7px 7px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 50%;
   border: none;
   font-family: Montserrat;

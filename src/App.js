@@ -64,6 +64,12 @@ function App() {
   const addAo12 = () => {
     setAo12(loadAvg(solves, 12));
   };
+  const resetSolves = () => {
+    let answer = window.confirm("Are you sure?");
+    if (!answer) return;
+    setSolves([]);
+    localStorage.clear();
+  };
   useEffect(() => {
     setDisplaySec(displayTime(0));
 
@@ -79,6 +85,9 @@ function App() {
         } else {
           setState("ready");
         }
+      } else if (event.altKey && event.code === "KeyD") {
+        resetSolves();
+      } else if (event.altKey && event.code === "KeyZ") {
       }
     });
     window.addEventListener("keyup", (event) => {
@@ -112,7 +121,12 @@ function App() {
           addAo12={addAo12}
           themeToggler={themeToggler}
         />
-        <Main displaySec={displaySec} state={state} scramble={scramble} />
+        <Main
+          theme={theme}
+          displaySec={displaySec}
+          state={state}
+          scramble={scramble}
+        />
         <EmptySpace>
           <Buttons>
             <TypeButton>3x3</TypeButton>

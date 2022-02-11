@@ -22,6 +22,7 @@ function NavBar({ themeToggler }) {
         <ColorModeBtn
           onClick={() => {
             themeToggler();
+            document.activeElement.blur();
           }}
         >
           <img src={lightModeIcon} alt="lightMode" />

@@ -13,6 +13,7 @@ function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
           onClick={() => {
             plusTime(index);
             setClicked(true);
+            document.activeElement.blur();
           }}
           disabled={clicked}
         >
@@ -23,6 +24,7 @@ function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
           onClick={() => {
             dnfTime(index);
             setClicked(true);
+            document.activeElement.blur();
           }}
         >
           DNF
@@ -30,6 +32,7 @@ function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
         <Delete
           onClick={() => {
             deleteTime(index);
+            document.activeElement.blur();
           }}
         >
           X
