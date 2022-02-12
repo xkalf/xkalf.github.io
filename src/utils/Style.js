@@ -62,14 +62,13 @@ export const ScrambleText = styled.p`
   color: ${(props) => props.theme.scrambleText};
 `;
 export const TimeText = styled.h1`
-  font-family: Montserrat;
+  font-family: "Roboto Mono", monospace;
   font-style: normal;
   font-weight: bold;
   font-size: 100px;
   line-height: 122px;
   display: flex;
   align-items: center;
-  text-align: center;
   letter-spacing: 0.17em;
   color: ${(props) =>
     props.state === "ready"
@@ -77,7 +76,6 @@ export const TimeText = styled.h1`
       : props.state === "waiting"
       ? "#ff0000"
       : props.theme.textColor};
-  margin-top: 11%;
 `;
 export const StartText = styled.p`
   font-family: Montserrat, sans-serif;
