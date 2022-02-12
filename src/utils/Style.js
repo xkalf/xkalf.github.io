@@ -19,7 +19,7 @@ export const themeDark = {
 export const themeLight = {
   textColor: "#333",
   mainBackground: "#e5e5e5",
-  scrambleText: "#b8b8b8",
+  scrambleText: "#333333",
   statBackground: "#fff",
   solvesList: "#fff",
   styledScramble: "#fff",
@@ -52,7 +52,7 @@ export const ScrambleText = styled.p`
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
   line-height: 30px;
   display: flex;
   align-items: center;
@@ -61,7 +61,7 @@ export const ScrambleText = styled.p`
   letter-spacing: -0.017em;
   color: ${(props) => props.theme.scrambleText};
 `;
-export const TimeText = styled.p`
+export const TimeText = styled.h1`
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -240,8 +240,8 @@ export const LanguageToggleBtn = styled.button`
   background-color: ${(props) => props.theme.toggleButton};
   border: none;
   border-radius: 25px;
-  height: 37px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
   font-size: 15px;
   line-height: 18px;
   text-align: center;
@@ -254,10 +254,10 @@ export const LanguageToggleBtn = styled.button`
 `;
 export const ColorModeBtn = styled.button`
   background-color: ${(props) => props.theme.toggleButton};
-  border-radius: 43px;
+  border-radius: 25px;
   border: none;
-  width: 67px;
-  height: 37px;
+  width: 45px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;

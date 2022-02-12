@@ -8,12 +8,12 @@ import {
   PagesContainer,
   PageContainer,
   Border,
-} from "./Style";
+} from "../utils/Style";
 
-import darkModeIcon from "../assets/dark-mode-icon.svg";
 import lightModeIcon from "../assets/light-mode-icon.svg";
+import darkModeIcon from "../assets/dark-mode-icon.svg";
 
-function NavBar({ themeToggler }) {
+function NavBar({ themeToggler, theme }) {
   return (
     <NavBarContainer>
       <UserContainer>
@@ -25,8 +25,10 @@ function NavBar({ themeToggler }) {
             document.activeElement.blur();
           }}
         >
-          <img src={lightModeIcon} alt="lightMode" />
-          <img src={darkModeIcon} alt="darkMode" />
+          <img
+            src={theme === "light" ? lightModeIcon : darkModeIcon}
+            alt="icon"
+          />
         </ColorModeBtn>
       </UserContainer>
       <PagesContainer>

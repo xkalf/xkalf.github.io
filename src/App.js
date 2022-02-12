@@ -7,19 +7,22 @@ import {
   SessionButton,
   themeDark,
   themeLight,
-} from "./components/Style";
+} from "./utils/Style";
 
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
-import { displayTime, loadAvg } from "./utils/TimerUtils";
+import { displayTime, loadAvg, getBest } from "./utils/TimerUtils";
 import { ThemeProvider } from "styled-components";
 
 function App() {
   const [theme, setTheme] = useState("dark");
   const [solves, setSolves] = useState([]);
   const [displaySec, setDisplaySec] = useState("");
+  const [best, setBest] = useState(0);
   const [state, setState] = useState("");
-  const [scramble, setScramble] = useState("scramble obso");
+  const [scramble, setScramble] = useState(
+    "R D R U' F' D2 L B U2 F D2 F D2 F R2 U2 B' U2 F L U'"
+  );
   const [ao5, setAo5] = useState([]);
   const [ao12, setAo12] = useState([]);
   let millSec = 0;
@@ -72,6 +75,7 @@ function App() {
   };
   useEffect(() => {
     setDisplaySec(displayTime(0));
+    setScramble("R D R U' F' D2 L B U2 F D2 F D2 F R2 U2 B' U2 F L U'");
 
     setSolves(JSON.parse(localStorage.getItem("solves")) || []);
     setAo5(loadAvg(solves, 5));
@@ -104,8 +108,17 @@ function App() {
   }, []);
   useEffect(() => {
     localStorage.setItem("solves", JSON.stringify(solves));
-  }, [solves]);
+    if (solves.length !== 0) setBest(displayTime(getBest(solves)));
+    else setBest(displayTime(0));
 
+    if (solves.length >= 5) {
+      addAo5();
+    }
+
+    if (solves.length >= 12) {
+      addAo12();
+    }
+  }, [solves]);
   return (
     <ThemeProvider theme={theme === "light" ? themeLight : themeDark}>
       <AppContainer>
@@ -120,6 +133,8 @@ function App() {
           addAo5={addAo5}
           addAo12={addAo12}
           themeToggler={themeToggler}
+          best={best}
+          theme={theme}
         />
         <Main
           theme={theme}

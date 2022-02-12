@@ -10,7 +10,7 @@ import {
   StartText,
   Logo,
   TextContainer,
-} from "./Style";
+} from "../utils/Style";
 
 function Main({ theme, displaySec, state, scramble }) {
   return (

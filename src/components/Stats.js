@@ -1,21 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { getBest } from "../utils/TimerUtils";
-import { Best, StatsContainer, Row, Avg } from "./Style";
+import React from "react";
+import { Best, StatsContainer, Row, Avg } from "../utils/Style";
 
-function Stats({ solves, displayTime, ao5, ao12, addAo5, addAo12 }) {
-  const [best, setBest] = useState(0);
-  useEffect(() => {
-    if (solves.length !== 0) setBest(displayTime(getBest(solves)));
-    else setBest(displayTime(0));
-
-    if (solves.length >= 5) {
-      addAo5();
-    }
-
-    if (solves.length >= 12) {
-      addAo12();
-    }
-  }, [solves]);
+function Stats({ solves, displayTime, ao5, ao12, best }) {
   return (
     <StatsContainer>
       <Best>

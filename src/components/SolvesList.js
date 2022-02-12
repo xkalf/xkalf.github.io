@@ -1,6 +1,6 @@
 import React from "react";
 import Solves from "./Solves";
-import { StyledSolvesList } from "./Style";
+import { StyledSolvesList } from "../utils/Style";
 
 function SolvesList({ solves, displayTime, deleteTime, plusTime, dnfTime }) {
   return (

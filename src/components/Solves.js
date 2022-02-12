@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { StyledSolves, Span, SolvesButtons, Plus2, Dnf, Delete } from "./Style";
+import {
+  StyledSolves,
+  Span,
+  SolvesButtons,
+  Plus2,
+  Dnf,
+  Delete,
+} from "../utils/Style";
 
 function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
-  const [clicked, setClicked] = useState(false);
+  const [plusClicked, setPlusClicked] = useState(false);
+  const [dnfCLicked, setDnfClicked] = useState(false);
   return (
     <StyledSolves>
       <Span>
@@ -12,18 +20,18 @@ function Solves({ time, count, deleteTime, index, plusTime, dnfTime }) {
         <Plus2
           onClick={() => {
             plusTime(index);
-            setClicked(true);
+            setPlusClicked(true);
             document.activeElement.blur();
           }}
-          disabled={clicked}
+          disabled={plusClicked || dnfCLicked}
         >
           +2
         </Plus2>
         <Dnf
-          disabled={clicked}
+          disabled={dnfCLicked}
           onClick={() => {
             dnfTime(index);
-            setClicked(true);
+            setDnfClicked(true);
             document.activeElement.blur();
           }}
         >

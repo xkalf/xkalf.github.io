@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledScramble } from "./Style";
+import { StyledScramble } from "../utils/Style";
 
 function ScrambleImg() {
   return <StyledScramble></StyledScramble>;

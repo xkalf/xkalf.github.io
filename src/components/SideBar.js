@@ -1,5 +1,5 @@
 import React from "react";
-import { SideBarContainer } from "./Style";
+import { SideBarContainer } from "../utils/Style";
 
 import NavBar from "./NavBar";
 import Stats from "./Stats";
@@ -17,17 +17,18 @@ function SideBar({
   addAo5,
   addAo12,
   themeToggler,
+  best,
+  theme,
 }) {
   return (
     <SideBarContainer>
-      <NavBar themeToggler={themeToggler} />
+      <NavBar themeToggler={themeToggler} theme={theme} />
       <Stats
-        addAo12={addAo12}
-        addAo5={addAo5}
         ao5={ao5}
         ao12={ao12}
         solves={solves}
         displayTime={displayTime}
+        best={best}
       />
 
       <SolvesList
