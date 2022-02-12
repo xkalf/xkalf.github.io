@@ -25,13 +25,20 @@ function App() {
   );
   const [ao5, setAo5] = useState([]);
   const [ao12, setAo12] = useState([]);
+
   let millSec = 0;
   let running = false;
   let keyPress = false;
   let myInterval;
 
   const themeToggler = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+    if (theme === "light") setTheme("dark");
+    else if (theme === "dark") setTheme("light");
+
+    localStorage.setItem(
+      "theme",
+      JSON.stringify(theme === "light" ? "dark" : "light")
+    );
   };
   const timeStart = () => {
     millSec = 0;
@@ -76,6 +83,7 @@ function App() {
   useEffect(() => {
     setDisplaySec(displayTime(0));
     setScramble("R D R U' F' D2 L B U2 F D2 F D2 F R2 U2 B' U2 F L U'");
+    setTheme(JSON.parse(localStorage.getItem("theme")) || "dark");
 
     setSolves(JSON.parse(localStorage.getItem("solves")) || []);
     setAo5(loadAvg(solves, 5));
@@ -108,6 +116,7 @@ function App() {
   }, []);
   useEffect(() => {
     localStorage.setItem("solves", JSON.stringify(solves));
+
     if (solves.length !== 0) setBest(displayTime(getBest(solves)));
     else setBest(displayTime(0));
 

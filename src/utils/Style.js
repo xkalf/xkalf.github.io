@@ -101,6 +101,10 @@ export const Logo = styled.img`
 `;
 export const TextContainer = styled.div`
   margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const StatsContainer = styled.div`
@@ -159,7 +163,18 @@ export const StyledSolvesList = styled.div`
   color: white;
   font-size: 18px;
   margin-top: 22px;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: none;
+  }
 `;
 
 export const Span = styled.span`
