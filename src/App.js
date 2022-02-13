@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import {
   AppContainer,
@@ -16,15 +17,15 @@ import { ThemeProvider } from "styled-components";
 
 function App() {
   const [theme, setTheme] = useState("dark");
+  const [state, setState] = useState("");
   const [solves, setSolves] = useState([]);
   const [displaySec, setDisplaySec] = useState("");
+  const [ao5, setAo5] = useState([]);
+  const [ao12, setAo12] = useState([]);
   const [best, setBest] = useState(0);
-  const [state, setState] = useState("");
   const [scramble, setScramble] = useState(
     "R D R U' F' D2 L B U2 F D2 F D2 F R2 U2 B' U2 F L U'"
   );
-  const [ao5, setAo5] = useState([]);
-  const [ao12, setAo12] = useState([]);
 
   let millSec = 0;
   let running = false;
@@ -78,7 +79,10 @@ function App() {
     let answer = window.confirm("Are you sure?");
     if (!answer) return;
     setSolves([]);
-    localStorage.clear();
+    setBest(0);
+    setAo5([]);
+    setAo12([]);
+    localStorage.setItem("solves", JSON.stringify([]));
   };
   useEffect(() => {
     setDisplaySec(displayTime(0));
