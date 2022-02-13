@@ -14,6 +14,8 @@ import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import { displayTime, loadAvg, getBest } from "./utils/TimerUtils";
 import { ThemeProvider } from "styled-components";
+import TypeDropDown from "./components/TypeDropDown";
+import SessionDropDown from "./components/SessionDropDown";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -23,6 +25,8 @@ function App() {
   const [ao5, setAo5] = useState([]);
   const [ao12, setAo12] = useState([]);
   const [best, setBest] = useState(0);
+  const [typeOpened, setTypeOpened] = useState(false);
+  const [sessionOpened, setSessionOpened] = useState(false);
   const [scramble, setScramble] = useState(
     "R D R U' F' D2 L B U2 F D2 F D2 F R2 U2 B' U2 F L U'"
   );
@@ -156,9 +160,27 @@ function App() {
           scramble={scramble}
         />
         <EmptySpace>
+          {typeOpened && <TypeDropDown />}
+          {sessionOpened && <SessionDropDown />}
           <Buttons>
-            <TypeButton>3x3</TypeButton>
-            <SessionButton>New</SessionButton>
+            <TypeButton
+              onClick={() => {
+                setTypeOpened(!typeOpened);
+                document.activeElement.blur();
+                if (!typeOpened) setSessionOpened(false);
+              }}
+            >
+              3x3
+            </TypeButton>
+            <SessionButton
+              onClick={() => {
+                setSessionOpened(!sessionOpened);
+                document.activeElement.blur();
+                if (!sessionOpened) setTypeOpened(false);
+              }}
+            >
+              New
+            </SessionButton>
           </Buttons>
         </EmptySpace>
       </AppContainer>

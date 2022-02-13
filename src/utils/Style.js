@@ -15,11 +15,13 @@ export const themeDark = {
   sessionButton: "linear-gradient(324.39deg, #3d444a -25.55%, #363c41 77.18%)",
   boxShadow: `4px 4px 20px rgba(0, 0, 0, 0.2),
     -3px -3px 18px rgba(255, 255, 255, 0.04)`,
+  dropDownBackground: "#414a52",
+  dropDownBackgroundHover: "rgba(42, 48, 54, 0.5)",
 };
 export const themeLight = {
   textColor: "#333",
   mainBackground: "#e5e5e5",
-  scrambleText: "#333333",
+  scrambleText: "#333",
   statBackground: "#fff",
   solvesList: "#fff",
   styledScramble: "#fff",
@@ -27,9 +29,11 @@ export const themeLight = {
   toggleButton: "#fff",
   pageContainer: "#fff",
   borderColor: "#dcdcdc",
-  buttons: "fff",
-  sessionButton: "fff",
+  buttons: "#fff",
+  sessionButton: "#fff",
   boxShadow: `-3px -3px 18px rgba(255, 255, 255, 0.04), 4px 4px 20px rgba(0, 0, 0, 0.2)`,
+  dropDownBackground: "#fefefe",
+  dropDownBackgroundHover: "rgba(42, 48, 54, 0.13)",
 };
 
 export const StyledMain = styled.div`
@@ -165,6 +169,7 @@ export const StyledSolvesList = styled.div`
   overflow-x: hidden;
   ::-webkit-scrollbar {
     width: 10px;
+    margin-right: 10rem;
   }
   ::-webkit-scrollbar-thumb {
     background-color: #c4c4c4;
@@ -331,6 +336,7 @@ export const Buttons = styled.div`
   align-items: center;
   width: 180px;
   padding: 5px;
+  z-index: 2;
 `;
 export const TypeButton = styled.button`
   font-family: Montserrat;
@@ -346,6 +352,7 @@ export const TypeButton = styled.button`
   background: none;
   border: none;
   margin: 21px 13px;
+  cursor: pointer;
 `;
 export const SessionButton = styled.button`
   height: 83px;
@@ -361,4 +368,74 @@ export const SessionButton = styled.button`
   font-size: 20px;
   line-height: 18px;
   color: ${(props) => props.theme.textColor};
+`;
+
+export const StyledTypeDropDownItem = styled.p`
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  &:hover {
+    background-color: ${(props) => props.theme.dropDownBackgroundHover};
+  }
+`;
+
+export const StyledDropDown = styled.div`
+  background-color: ${(props) => props.theme.dropDownBackground};
+  color: ${(props) => props.theme.textColor};
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 180px;
+  height: 250px;
+  border-radius: 14px;
+  position absolute;
+  bottom: 95px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  ::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 10rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: none;
+  }
+  gap: 5px;
+  padding-top: 20px;
+  padding-bottom: 64px;
+`;
+
+export const SessionText = styled.p`
+  color: ${(props) => props.theme.textColor};
+  text-align: center;
+  font-size: 20px;
+  line-height: 18px;
+  margin-bottom: 20px;
+`;
+
+export const SessionItems = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SessionName = styled.p`
+  color: ${(props) => props.theme.textColor};
+  text-align: center;
+  font-size: 20px;
+  line-height: 18px;
+  margin-right: 20px;
+`;
+
+export const NewSessionButton = styled.button`
+  font-size: 20px;
+  line-height: 18px;
+  text-align: center;
+  color: #58d568;
+  background: none;
+  border: none;
 `;
