@@ -13,6 +13,7 @@ import {
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import { displayTime, loadAvg, getBest } from "./utils/TimerUtils";
+import Scramble from "./utils/Scramble";
 import { ThemeProvider } from "styled-components";
 import TypeDropDown from "./components/TypeDropDown";
 import SessionDropDown from "./components/SessionDropDown";
@@ -27,9 +28,7 @@ function App() {
   const [best, setBest] = useState(0);
   const [typeOpened, setTypeOpened] = useState(false);
   const [sessionOpened, setSessionOpened] = useState(false);
-  const [scramble, setScramble] = useState(
-    "R D R U' F' D2 L B U2 F D2 F D2 F R2 U2 B' U2 F L U'"
-  );
+  const [scramble, setScramble] = useState("");
 
   let millSec = 0;
   let running = false;
@@ -90,7 +89,7 @@ function App() {
   };
   useEffect(() => {
     setDisplaySec(displayTime(0));
-    setScramble("R D R U' F' D2 L B U2 F D2 F D2 F R2 U2 B' U2 F L U'");
+    setScramble(Scramble());
     setTheme(JSON.parse(localStorage.getItem("theme")) || "dark");
 
     setSolves(JSON.parse(localStorage.getItem("solves")) || []);
@@ -124,6 +123,7 @@ function App() {
   }, []);
   useEffect(() => {
     localStorage.setItem("solves", JSON.stringify(solves));
+    setScramble(Scramble());
 
     if (solves.length !== 0) setBest(displayTime(getBest(solves)));
     else setBest(displayTime(0));
