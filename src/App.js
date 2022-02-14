@@ -1,22 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import {
-  AppContainer,
-  EmptySpace,
-  Buttons,
-  TypeButton,
-  SessionButton,
-  themeDark,
-  themeLight,
-} from "./utils/Style";
+import { ThemeProvider } from "styled-components";
+import { AppContainer, themeDark, themeLight } from "./utils/Style";
 
 import SideBar from "./components/SideBar";
 import Main from "./components/Main";
+import EmptySpace from "./components/EmptySpace";
 import { displayTime, loadAvg, getBest } from "./utils/TimerUtils";
 import Scramble from "./utils/Scramble";
-import { ThemeProvider } from "styled-components";
-import TypeDropDown from "./components/TypeDropDown";
-import SessionDropDown from "./components/SessionDropDown";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -26,8 +17,6 @@ function App() {
   const [ao5, setAo5] = useState([]);
   const [ao12, setAo12] = useState([]);
   const [best, setBest] = useState(0);
-  const [typeOpened, setTypeOpened] = useState(false);
-  const [sessionOpened, setSessionOpened] = useState(false);
   const [scramble, setScramble] = useState("");
 
   let millSec = 0;
@@ -159,30 +148,7 @@ function App() {
           state={state}
           scramble={scramble}
         />
-        <EmptySpace>
-          {typeOpened && <TypeDropDown />}
-          {sessionOpened && <SessionDropDown />}
-          <Buttons>
-            <TypeButton
-              onClick={() => {
-                setTypeOpened(!typeOpened);
-                document.activeElement.blur();
-                if (!typeOpened) setSessionOpened(false);
-              }}
-            >
-              3x3
-            </TypeButton>
-            <SessionButton
-              onClick={() => {
-                setSessionOpened(!sessionOpened);
-                document.activeElement.blur();
-                if (!sessionOpened) setTypeOpened(false);
-              }}
-            >
-              New
-            </SessionButton>
-          </Buttons>
-        </EmptySpace>
+        <EmptySpace />
       </AppContainer>
     </ThemeProvider>
   );

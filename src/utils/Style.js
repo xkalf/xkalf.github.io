@@ -62,7 +62,7 @@ export const ScrambleText = styled.p`
   align-items: center;
   text-align: center;
   line-height: 1.2em;
-  letter-spacing: -0.017em;
+  letter-spacing: 0.017em;
   color: ${(props) => props.theme.scrambleText};
 `;
 export const TimeText = styled.h1`
@@ -181,11 +181,12 @@ export const StyledSolvesList = styled.div`
 `;
 
 export const Span = styled.span`
-  font-family: Inter;
+  font-family: "Roboto Mono", monospace;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 18px;
+  letter-spacing: -0.1em;
   /* or 100% */
   display: flex;
   align-items: center;
@@ -318,7 +319,7 @@ export const AppContainer = styled.div`
   height: 100vh;
   overflow: hidden;
 `;
-export const EmptySpace = styled.div`
+export const StyledEmptySpace = styled.div`
   flex: 2.4;
   background-color: ${(props) => props.theme.mainBackground};
   display: flex;
