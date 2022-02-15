@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { AppContainer, themeDark, themeLight } from "./utils/Style";
 

@@ -156,6 +156,8 @@ export const Avg = styled.div`
 `;
 
 export const StyledSolvesList = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
   height: 30%;
   background-color: ${(props) => props.theme.solvesList};
   box-shadow: ${(props) => props.theme.boxShadow};
@@ -387,7 +389,7 @@ export const StyledDropDown = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   width: 180px;
-  height: 250px;
+  max-height: 250px;
   border-radius: 14px;
   position absolute;
   bottom: 95px;
