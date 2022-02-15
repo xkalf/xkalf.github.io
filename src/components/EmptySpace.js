@@ -9,12 +9,17 @@ import {
   SessionButton,
 } from "../utils/Style";
 
-const EmptySpace = () => {
+const EmptySpace = ({ currentType, setCurrentType }) => {
   const [typeOpened, setTypeOpened] = useState(false);
   const [sessionOpened, setSessionOpened] = useState(false);
   return (
     <StyledEmptySpace>
-      {typeOpened && <TypeDropDown />}
+      {typeOpened && (
+        <TypeDropDown
+          setTypeOpened={setTypeOpened}
+          setCurrentType={setCurrentType}
+        />
+      )}
       {sessionOpened && <SessionDropDown />}
       <Buttons>
         <TypeButton
@@ -24,7 +29,7 @@ const EmptySpace = () => {
             if (!typeOpened) setSessionOpened(false);
           }}
         >
-          3x3
+          {currentType}
         </TypeButton>
         <SessionButton
           onClick={() => {

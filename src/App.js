@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { AppContainer, themeDark, themeLight } from "./utils/Style";
 
@@ -7,7 +7,7 @@ import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import EmptySpace from "./components/EmptySpace";
 import { displayTime, loadAvg, getBest } from "./utils/TimerUtils";
-import Scramble from "./utils/Scramble";
+import { nnScramble } from "./utils/Scramble";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -18,6 +18,7 @@ function App() {
   const [ao12, setAo12] = useState([]);
   const [best, setBest] = useState(0);
   const [scramble, setScramble] = useState("");
+  const [currentType, setCurrentType] = useState("4x4");
 
   let millSec = 0;
   let running = false;
@@ -78,7 +79,7 @@ function App() {
   };
   useEffect(() => {
     setDisplaySec(displayTime(0));
-    setScramble(Scramble());
+    setScramble(nnScramble(currentType));
     setTheme(JSON.parse(localStorage.getItem("theme")) || "dark");
 
     setSolves(JSON.parse(localStorage.getItem("solves")) || []);
@@ -95,7 +96,18 @@ function App() {
         }
       } else if (event.altKey && event.code === "KeyD") {
         resetSolves();
-      } else if (event.altKey && event.code === "KeyZ") {
+      } else if (event.altKey && event.code === "Digit2") {
+        setCurrentType("2x2");
+      } else if (event.altKey && event.code === "Digit3") {
+        setCurrentType("3x3");
+      } else if (event.altKey && event.code === "Digit4") {
+        setCurrentType("4x4");
+      } else if (event.altKey && event.code === "Digit5") {
+        setCurrentType("5x5");
+      } else if (event.altKey && event.code === "Digit6") {
+        setCurrentType("6x6");
+      } else if (event.altKey && event.code === "Digit7") {
+        setCurrentType("7x7");
       }
     });
     window.addEventListener("keyup", (event) => {
@@ -112,7 +124,7 @@ function App() {
   }, []);
   useEffect(() => {
     localStorage.setItem("solves", JSON.stringify(solves));
-    setScramble(Scramble());
+    setScramble(nnScramble(currentType));
 
     if (solves.length !== 0) setBest(displayTime(getBest(solves)));
     else setBest(displayTime(0));
@@ -125,6 +137,9 @@ function App() {
       addAo12();
     }
   }, [solves]);
+  useEffect(() => {
+    setScramble(nnScramble(currentType));
+  }, [currentType]);
   return (
     <ThemeProvider theme={theme === "light" ? themeLight : themeDark}>
       <AppContainer>
@@ -148,7 +163,7 @@ function App() {
           state={state}
           scramble={scramble}
         />
-        <EmptySpace />
+        <EmptySpace currentType={currentType} setCurrentType={setCurrentType} />
       </AppContainer>
     </ThemeProvider>
   );
