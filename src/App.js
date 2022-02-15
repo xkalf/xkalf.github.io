@@ -7,7 +7,7 @@ import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import EmptySpace from "./components/EmptySpace";
 import { displayTime, loadAvg, getBest } from "./utils/TimerUtils";
-import { nnScramble } from "./utils/Scramble";
+import { nnScramble, megaminxScramble } from "./utils/Scramble";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -18,7 +18,7 @@ function App() {
   const [ao12, setAo12] = useState([]);
   const [best, setBest] = useState(0);
   const [scramble, setScramble] = useState("");
-  const [currentType, setCurrentType] = useState("4x4");
+  const [currentType, setCurrentType] = useState("3x3");
 
   let millSec = 0;
   let running = false;
@@ -81,6 +81,7 @@ function App() {
     setDisplaySec(displayTime(0));
     setScramble(nnScramble(currentType));
     setTheme(JSON.parse(localStorage.getItem("theme")) || "dark");
+    setCurrentType(JSON.parse(localStorage.getItem("type")) || "3x3");
 
     setSolves(JSON.parse(localStorage.getItem("solves")) || []);
     setAo5(loadAvg(solves, 5));
@@ -138,7 +139,9 @@ function App() {
     }
   }, [solves]);
   useEffect(() => {
-    setScramble(nnScramble(currentType));
+    if (currentType === "megaminx") setScramble(megaminxScramble());
+    else setScramble(nnScramble(currentType));
+    localStorage.setItem("type", JSON.stringify(currentType));
   }, [currentType]);
   return (
     <ThemeProvider theme={theme === "light" ? themeLight : themeDark}>

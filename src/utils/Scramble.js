@@ -58,3 +58,19 @@ export const nnScramble = (type) => {
   }
   return scramble.join(" ");
 };
+
+export const megaminxScramble = () => {
+  let megaScramble = [];
+  const moves = ["--", "++"];
+  const lastMove = ["", "'"];
+  for (let i = 0; i < 7; i++) {
+    for (let j = 0; j < 5; j++) {
+      let rMove = "R" + moves[Math.floor(Math.random() * moves.length)];
+      let dMove = "D" + moves[Math.floor(Math.random() * moves.length)];
+      megaScramble = [...megaScramble, rMove, dMove];
+    }
+    let uMove = "U" + lastMove[Math.floor(Math.random * lastMove.length)],
+      megaScramble = [...megaScramble, uMove];
+  }
+  return megaScramble.join(" ");
+};
