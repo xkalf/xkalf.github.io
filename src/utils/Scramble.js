@@ -34,7 +34,7 @@ const scrambleLength = {
   "6x6": [80, 80],
   "7x7": [100, 100],
 };
-export const nnScramble = (type) => {
+const nnScramble = (type) => {
   const moves = nnCubes[type];
   const slice = ["", "'", "2"];
 
@@ -59,18 +59,25 @@ export const nnScramble = (type) => {
   return scramble.join(" ");
 };
 
-export const megaminxScramble = () => {
-  let megaScramble = [];
+const megaminxScramble = () => {
   const moves = ["--", "++"];
-  const lastMove = ["", "'"];
+  const lastMove = [" ", "'"];
+  let scramble = [];
   for (let i = 0; i < 7; i++) {
     for (let j = 0; j < 5; j++) {
       let rMove = "R" + moves[Math.floor(Math.random() * moves.length)];
       let dMove = "D" + moves[Math.floor(Math.random() * moves.length)];
-      megaScramble = [...megaScramble, rMove, dMove];
+      scramble = [...scramble, rMove, dMove];
     }
-    let uMove = "U" + lastMove[Math.floor(Math.random * lastMove.length)],
-      megaScramble = [...megaScramble, uMove];
+    let uMove = "U" + lastMove[Math.floor(Math.random() * lastMove.length)];
+    scramble = [...scramble, uMove, "\n"];
   }
-  return megaScramble.join(" ");
+  return scramble.join(" ");
 };
+
+function mainScramble(type) {
+  if (type === "megaminx") return megaminxScramble();
+  else return nnScramble(type);
+}
+
+export default mainScramble;

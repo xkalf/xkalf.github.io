@@ -23,6 +23,7 @@ const EmptySpace = ({ currentType, setCurrentType }) => {
       {sessionOpened && <SessionDropDown />}
       <Buttons>
         <TypeButton
+          currentType={currentType}
           onClick={() => {
             setTypeOpened(!typeOpened);
             document.activeElement.blur();

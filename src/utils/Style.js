@@ -56,7 +56,20 @@ export const ScrambleText = styled.p`
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 30px;
+  font-size: ${(props) =>
+    props.currentType === "3x3"
+      ? "2rem"
+      : props.currentType === "2x2"
+      ? "2.4rem"
+      : props.currentType === "4x4"
+      ? "1.8rem"
+      : props.currentType === "5x5"
+      ? "1.6rem"
+      : props.currentType === "6x6" || props.currentType === "7x7"
+      ? "1.4rem"
+      : props.currentType === "megaminx"
+      ? "1.5rem"
+      : "1rem"};
   line-height: 30px;
   display: flex;
   align-items: center;
@@ -64,6 +77,7 @@ export const ScrambleText = styled.p`
   line-height: 1.2em;
   letter-spacing: 0.017em;
   color: ${(props) => props.theme.scrambleText};
+  white-space: pre-wrap;
 `;
 export const TimeText = styled.h1`
   font-family: "Roboto Mono", monospace;
@@ -96,9 +110,15 @@ export const StartText = styled.p`
 `;
 
 export const Logo = styled.img`
-  margin-top: 25vh;
+  margin-top: ${(props) =>
+    props.currentType === "2x2" || props.currentType === "3x3"
+      ? "25vh"
+      : "22vh"};
   @media (max-height: 700px) {
-    margin-top: 16vh;
+    margin-top: ${(props) =>
+      props.currentType === "2x2" || props.currentType === "3x3"
+        ? "16vh"
+        : "14vh"};
   }
 `;
 export const TextContainer = styled.div`
@@ -345,7 +365,10 @@ export const TypeButton = styled.button`
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
-  font-size: 36px;
+  font-size: ${(props) =>
+    props.currentType === "megaminx" ? "0.8rem" : "2rem"};
+  text-transform: ${(props) =>
+    props.currentType === "megaminx" ? "uppercase" : "none"};
   line-height: 18px;
   /* or 50% */
   display: flex;

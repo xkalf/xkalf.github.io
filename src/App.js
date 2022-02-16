@@ -7,7 +7,7 @@ import SideBar from "./components/SideBar";
 import Main from "./components/Main";
 import EmptySpace from "./components/EmptySpace";
 import { displayTime, loadAvg, getBest } from "./utils/TimerUtils";
-import { nnScramble, megaminxScramble } from "./utils/Scramble";
+import mainScramble from "./utils/Scramble";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -79,7 +79,7 @@ function App() {
   };
   useEffect(() => {
     setDisplaySec(displayTime(0));
-    setScramble(nnScramble(currentType));
+    setScramble(mainScramble(currentType));
     setTheme(JSON.parse(localStorage.getItem("theme")) || "dark");
     setCurrentType(JSON.parse(localStorage.getItem("type")) || "3x3");
 
@@ -109,6 +109,8 @@ function App() {
         setCurrentType("6x6");
       } else if (event.altKey && event.code === "Digit7") {
         setCurrentType("7x7");
+      } else if (event.altKey && event.code === "KeyM") {
+        setCurrentType("megaminx");
       }
     });
     window.addEventListener("keyup", (event) => {
@@ -125,7 +127,7 @@ function App() {
   }, []);
   useEffect(() => {
     localStorage.setItem("solves", JSON.stringify(solves));
-    setScramble(nnScramble(currentType));
+    setScramble(mainScramble(currentType));
 
     if (solves.length !== 0) setBest(displayTime(getBest(solves)));
     else setBest(displayTime(0));
@@ -139,8 +141,7 @@ function App() {
     }
   }, [solves]);
   useEffect(() => {
-    if (currentType === "megaminx") setScramble(megaminxScramble());
-    else setScramble(nnScramble(currentType));
+    setScramble(mainScramble(currentType));
     localStorage.setItem("type", JSON.stringify(currentType));
   }, [currentType]);
   return (
@@ -165,6 +166,7 @@ function App() {
           displaySec={displaySec}
           state={state}
           scramble={scramble}
+          currentType={currentType}
         />
         <EmptySpace currentType={currentType} setCurrentType={setCurrentType} />
       </AppContainer>

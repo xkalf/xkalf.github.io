@@ -12,17 +12,21 @@ import {
   TextContainer,
 } from "../utils/Style";
 
-function Main({ theme, displaySec, state, scramble }) {
+function Main({ theme, displaySec, state, scramble, currentType }) {
   return (
     <StyledMain>
       <ScrambleContainer>
-        <ScrambleText>{scramble}</ScrambleText>
+        <ScrambleText currentType={currentType}>{scramble}</ScrambleText>
       </ScrambleContainer>
       <TextContainer>
         <TimeText state={state}>{displaySec}</TimeText>
         <StartText>Press and hold Space to start</StartText>
       </TextContainer>
-      <Logo src={theme === "dark" ? whiteLogo : blackLogo} alt="logo" />
+      <Logo
+        currentType={currentType}
+        src={theme === "dark" ? whiteLogo : blackLogo}
+        alt="logo"
+      />
     </StyledMain>
   );
 }
