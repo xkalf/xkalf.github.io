@@ -110,15 +110,9 @@ export const StartText = styled.p`
 `;
 
 export const Logo = styled.img`
-  margin-top: ${(props) =>
-    props.currentType === "2x2" || props.currentType === "3x3"
-      ? "25vh"
-      : "22vh"};
-  @media (max-height: 700px) {
-    margin-top: ${(props) =>
-      props.currentType === "2x2" || props.currentType === "3x3"
-        ? "16vh"
-        : "14vh"};
+  margin-top: 28vh;
+  @media (max-height: 800px) {
+    margin-top: 22vh;
   }
 `;
 export const TextContainer = styled.div`

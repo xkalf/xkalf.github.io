@@ -77,7 +77,23 @@ const megaminxScramble = () => {
 
 function mainScramble(type) {
   if (type === "megaminx") return megaminxScramble();
-  else return nnScramble(type);
+  else {
+    let text;
+    while (true) {
+      text = nnScramble(type);
+      if (
+        text.includes("R") &&
+        text.includes("L") &&
+        text.includes("U") &&
+        text.includes("D") &&
+        text.includes("F") &&
+        text.includes("B")
+      ) {
+        break;
+      }
+    }
+    return text;
+  }
 }
 
 export default mainScramble;
