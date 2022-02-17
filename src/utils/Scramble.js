@@ -77,6 +77,7 @@ const megaminxScramble = () => {
 
 function mainScramble(type) {
   if (type === "megaminx") return megaminxScramble();
+  else if (type === "2x2") return nnScramble(type);
   else {
     let text;
     while (true) {
