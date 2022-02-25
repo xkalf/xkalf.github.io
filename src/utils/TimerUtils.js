@@ -32,7 +32,7 @@ export const displayTime = (time) => {
     } else {
       result += seconds + ".";
     }
-    time -= seconds;
+    time -= seconds * msInSecond;
   } else {
     if (minutes > 0) {
       result += "00.";
@@ -81,7 +81,7 @@ export const loadAvg = (arr, length) => {
   if (arr.length >= length) {
     let result = [];
 
-    for (let i = 0; i <= arr.length - (length - 1); i++) {
+    for (let i = 0; i < arr.length - (length - 1); i++) {
       let newArr = [];
       for (let j = 0; j < length; j++) {
         newArr = [...newArr, arr[j + i]];
@@ -100,5 +100,6 @@ export const loadAvg = (arr, length) => {
     }
 
     return result;
-  } else return [];
+  }
+  return [];
 };

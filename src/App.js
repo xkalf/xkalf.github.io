@@ -97,6 +97,8 @@ function App() {
         }
       } else if (event.altKey && event.code === "KeyD") {
         resetSolves();
+      } else if (event.altKey && event.code === "ArrowRight") {
+        setScramble(mainScramble(currentType));
       } else if (event.altKey && event.code === "Digit2") {
         setCurrentType("2x2");
       } else if (event.altKey && event.code === "Digit3") {
