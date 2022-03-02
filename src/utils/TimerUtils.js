@@ -95,7 +95,7 @@ export const loadAvg = (arr, length) => {
       const index2 = newArr.indexOf(max);
       newArr.splice(index2, 1);
 
-      const avg = (newArr.reduce((a, b) => a + b, 0) / newArr.length).toFixed();
+      const avg = Math.floor(newArr.reduce((a, b) => a + b, 0) / newArr.length);
       result = [...result, avg];
     }
 

@@ -170,7 +170,7 @@ function App() {
           scramble={scramble}
           currentType={currentType}
         />
-        <EmptySpace currentType={currentType} setCurrentType={setCurrentType} />
+        <EmptySpace currentType={currentType} setCurrentType={setCurrentType} />{" "}
       </AppContainer>
     </ThemeProvider>
   );
